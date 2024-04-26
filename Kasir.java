@@ -23,9 +23,9 @@ public class Kasir {
     public void tampilkanDaftarMeja() {
         for(int i = 0; i < 10;i++){
             if(daftarMeja[i].isKosong()==true){
-                System.out.println("Meja "+daftarMeja[i].getNomorMeja()+"(kosong)");
+                System.out.println("Meja "+ daftarMeja[i].getNomorMeja()+ "(kosong)");
             } else {
-                System.out.println("Meja "+daftarMeja[i].getNomorMeja() + "(terisi oleh pelanggan " + daftarMeja[i].getPelanggan().getNama()+")");
+                System.out.println("Meja "+ daftarMeja[i].getNomorMeja() + "(terisi oleh pelanggan " + daftarMeja[i].getPelanggan().getNama()+")");
             }
         }
     }
@@ -34,23 +34,23 @@ public class Kasir {
     // jika meja kosong tambahkan pelanggan pada meja tersebut
     // jika tidak buatlah keterangan bahwa meja sudah ada pelanggan
     public void tambahPelanggan(int nomorMeja, Pelanggan pelanggan) {
-        if(daftarMeja[nomorMeja-1].isKosong()==true){
-            daftarMeja[nomorMeja-1].setPelanggan(pelanggan);
-            daftarMeja[nomorMeja-1].isKosong();
-        } else {
-            System.out.println("Meja sudah terisi");
+        if(daftarMeja[nomorMeja - 1].isKosong()==true){
+            daftarMeja[nomorMeja - 1].setPelanggan(pelanggan);
+            daftarMeja[nomorMeja - 1].isKosong();
+        }else{
+            System.out.print("Meja sudah terisi\n");
         }
     }
     
     // menambah pesanan menu pada nomor meja
     // jika menu tidak ada dalam daftar maka tampilkan "Menu is null" 
-    public void tambahPesanan(int nomorMeja, Menu menu) {
+    public void tambahPesanan(int nomorMeja,Menu menu) {
         daftarMeja[nomorMeja-1].setMenu(menu);
     }
 
     // Menghapus pelanggan 
     public void hapusPelanggan(int nomorMeja) {
-        daftarMeja[nomorMeja-1].setPelanggan(null);
+        daftarMeja[nomorMeja - 1].setPelanggan(null);
     }
 
     public int hitungHargaPesanan(int nomorMeja) {
@@ -65,9 +65,9 @@ public class Kasir {
                 }
             }
 
-            System.out.print("Harga pesanan di meja "+nomorMeja+" adalah "+totalHarga+"\n");
+            System.out.print("Harga pesanan di meja " + nomorMeja +" adalah "+ totalHarga +"\n");
         } else {
-            System.out.print("Meja "+nomorMeja+" tidak memiliki pesanan\n");
+            System.out.print("Meja " + nomorMeja + " tidak memiliki pesanan\n");
         }
         return totalHarga;
     }
@@ -127,7 +127,7 @@ public class Kasir {
                 case 2:
                 System.out.print("Nomor meja: ");
                 int nomorMeja=scanner.nextInt();
-                System.out.print("Nama Pelanggan: ");
+                System.out.print("Nama pelanggan: ");
                 Pelanggan pelanggan=new Pelanggan(scanner.next());
                 tambahPelanggan(nomorMeja,pelanggan);
                 break;
@@ -139,7 +139,7 @@ public class Kasir {
                 boolean stopLoop = false;
                 System.out.print("Masukkan nomor meja: ");
                 int nomorMejaPesan = scanner.nextInt();
-                Boolean meja = daftarMeja[nomorMejaPesan - 1].isKosong();
+                Boolean meja = daftarMeja[nomorMejaPesan-1].isKosong();
                 scanner.nextLine();  
                 if (!meja) {
                     tampilkanDaftarMenu();
@@ -188,8 +188,8 @@ public class Kasir {
 
                 case 5:
                     System.out.print("Nomor meja: ");
-                    nomorMejaPesan = scanner.nextInt();
-                    hitungHargaPesanan(nomorMejaPesan);
+                    nomorMejaPesan=scanner.nextInt();
+                    hitungHargaPesanan (nomorMejaPesan);
                     break;
                     // Untuk melihat total harga pesanan pada meja tertentu
                     // tampilkan pesan untuk memasukkan nomor meja 
